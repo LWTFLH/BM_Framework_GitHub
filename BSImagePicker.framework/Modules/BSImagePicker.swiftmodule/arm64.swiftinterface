@@ -1,0 +1,92 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
+// swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name BSImagePicker
+import AVFoundation
+import BSGridCollectionViewLayout
+@_exported import BSImagePicker
+import BSImageView
+import Foundation
+import Photos
+import Swift
+import UIKit
+public protocol BSImagePickerSettings {
+  var maxNumberOfSelections: Swift.Int { get set }
+  var selectionCharacter: Swift.Character? { get set }
+  var selectionFillColor: UIKit.UIColor { get set }
+  var selectionStrokeColor: UIKit.UIColor { get set }
+  var selectionShadowColor: UIKit.UIColor { get set }
+  var selectionTextAttributes: [Foundation.NSAttributedString.Key : Swift.AnyObject] { get set }
+  var backgroundColor: UIKit.UIColor { get set }
+  var cellsPerRow: (UIKit.UIUserInterfaceSizeClass, UIKit.UIUserInterfaceSizeClass) -> Swift.Int { get set }
+  var takePhotos: Swift.Bool { get set }
+  var takePhotoIcon: UIKit.UIImage? { get set }
+}
+@objc open class BSImagePickerViewController : UIKit.UINavigationController {
+  open var settings: BSImagePicker.BSImagePickerSettings
+  @objc open var doneButton: UIKit.UIBarButtonItem
+  @objc open var cancelButton: UIKit.UIBarButtonItem
+  @objc open var defaultSelections: Photos.PHFetchResult<Photos.PHAsset>?
+  @objc open var fetchResults: [Photos.PHFetchResult<Photos.PHAssetCollection>] {
+    @objc get
+    @objc set(value)
+  }
+  @objc dynamic public init()
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic open func loadView()
+  @objc deinit
+  @available(iOS 5.0, *)
+  @objc override dynamic public init(navigationBarClass: Swift.AnyClass?, toolbarClass: Swift.AnyClass?)
+  @objc override dynamic public init(rootViewController: UIKit.UIViewController)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+extension BSImagePickerViewController : BSImagePicker.BSImagePickerSettings {
+  @objc dynamic public var maxNumberOfSelections: Swift.Int {
+    @objc get
+    @objc set(newValue)
+  }
+  public var selectionCharacter: Swift.Character? {
+    get
+    set(newValue)
+  }
+  @objc dynamic public var selectionFillColor: UIKit.UIColor {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc dynamic public var selectionStrokeColor: UIKit.UIColor {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc dynamic public var selectionShadowColor: UIKit.UIColor {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc dynamic public var selectionTextAttributes: [Foundation.NSAttributedString.Key : Swift.AnyObject] {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc dynamic public var backgroundColor: UIKit.UIColor {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc dynamic public var cellsPerRow: (UIKit.UIUserInterfaceSizeClass, UIKit.UIUserInterfaceSizeClass) -> Swift.Int {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc dynamic public var takePhotos: Swift.Bool {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc dynamic public var takePhotoIcon: UIKit.UIImage? {
+    @objc get
+    @objc set(newValue)
+  }
+}
+extension BSImagePickerViewController {
+  @objc dynamic public var albumButton: UIKit.UIButton {
+    @objc get
+    @objc set(newValue)
+  }
+}
+extension UIViewController {
+  @objc dynamic public func bs_presentImagePickerController(_ imagePicker: BSImagePicker.BSImagePickerViewController, animated: Swift.Bool, select: ((Photos.PHAsset) -> Swift.Void)?, deselect: ((Photos.PHAsset) -> Swift.Void)?, cancel: (([Photos.PHAsset]) -> Swift.Void)?, finish: (([Photos.PHAsset]) -> Swift.Void)?, completion: (() -> Swift.Void)?, selectLimitReached: ((Swift.Int) -> Swift.Void)? = nil)
+}

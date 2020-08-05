@@ -1,0 +1,62 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
+// swift-module-flags: -target arm64-apple-ios8.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name BSImageView
+@_exported import BSImageView
+import Foundation
+import Swift
+import UIKit
+@objc @_inheritsConvenienceInitializers @IBDesignable public class BSImageView : UIKit.UIView {
+  @objc override dynamic public var isUserInteractionEnabled: Swift.Bool {
+    @objc get
+    @objc set(value)
+  }
+  @objc override dynamic public var tintColor: UIKit.UIColor! {
+    @objc get
+    @objc set(value)
+  }
+  @objc override dynamic public var contentMode: UIKit.UIView.ContentMode {
+    @objc get
+    @objc set(value)
+  }
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc override dynamic public func layoutSubviews()
+  @objc deinit
+}
+extension BSImageView {
+  public convenience init(image: UIKit.UIImage?)
+  public convenience init(image: UIKit.UIImage?, highlightedImage: UIKit.UIImage?)
+  @objc @IBInspectable dynamic open var image: UIKit.UIImage? {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc @IBInspectable dynamic open var highlightedImage: UIKit.UIImage? {
+    @objc get
+    @objc set(newValue)
+  }
+  @objc @IBInspectable dynamic open var isHighlighted: Swift.Bool {
+    @objc get
+    @objc set(newValue)
+  }
+  open var animationImages: [UIKit.UIImage]? {
+    get
+    set(newValue)
+  }
+  open var highlightedAnimationImages: [UIKit.UIImage]? {
+    get
+    set(newValue)
+  }
+  open var animationDuration: Foundation.TimeInterval {
+    get
+    set(newValue)
+  }
+  open var animationRepeatCount: Swift.Int {
+    get
+    set(newValue)
+  }
+  open func startAnimating()
+  open func stopAnimating()
+  open var isAnimating: Swift.Bool {
+    get
+  }
+}
